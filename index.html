@@ -12,689 +12,176 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://silviaprietocineclub.com">
   <meta property="og:title" content="Silvia Prieto Cineclub">
-  <meta property="og:description" content="Cineclub experimental todos los jueves en Honoria Cultural. Un espacio donde lo extraño y lo poético se filtran sin avisar.">
+  <meta property="og:description" content="Cineclub experimental todos los viernes en Honoria Cultural. Un espacio donde lo extraño y lo poético se filtran sin avisar.">
   <meta property="og:image" content="https://raw.githubusercontent.com/silviaprietocineclub/portfolio/main/social-preview.jpg">
   
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Silvia Prieto Cineclub">
-  <meta name="twitter:description" content="Cineclub experimental todos los jueves en Honoria Cultural.">
+  <meta name="twitter:description" content="Cineclub experimental todos los viernes en Honoria Cultural.">
   
-  <meta name="description" content="Silvia Prieto Cineclub - Un espacio cinematográfico experimental en Viedma, Río Negro. Todos los jueves en Honoria Cultural.">
+  <meta name="description" content="Silvia Prieto Cineclub - Un espacio cinematográfico experimental en Viedma, Río Negro. Todos los viernes en Honoria Cultural.">
   
   <!-- GOOGLE FONTS -->
   <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
   
-  <!-- ESTILOS INLINE -->
-  <style>
-    /* RESET BÁSICO */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { 
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #0a0a0a; 
-      color: #f0f0f0;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-    
-    /* BANNER SUPERIOR */
-    .top-banner {
-      background: #00ff9d;
-      color: #000;
-      padding: 0.8rem;
-      text-align: center;
-      font-weight: 600;
-      font-size: 0.95rem;
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 2000;
-    }
-    
-    /* HEADER */
-    header {
-      position: fixed;
-      top: 40px;
-      width: 100%;
-      background: rgba(10, 10, 10, 0.95);
-      backdrop-filter: blur(10px);
-      padding: 1.5rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 1000;
-      border-bottom: 1px solid rgba(0, 255, 157, 0.1);
-    }
-    
-    .logo {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: #00ff9d;
-      text-decoration: none;
-      font-family: 'UnifrakturCook', cursive;
-    }
-    
-    .logo span { color: #fff; }
-    
-    nav ul {
-      display: flex;
-      list-style: none;
-      gap: 2rem;
-    }
-    
-    nav a {
-      color: #ccc;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-    
-    nav a:hover { color: #00ff9d; }
-    
-    /* HERO SECTION */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 0 2rem;
-      padding-top: 180px;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    
-    .hero h1 {
-      font-size: 3.5rem;
-      background: linear-gradient(90deg, #fff, #00ff9d);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 1rem;
-      font-family: 'UnifrakturCook', cursive;
-    }
-    
-    .subtitle {
-      color: #00ff9d;
-      font-size: 1.5rem;
-      font-weight: 600;
-      margin-bottom: 1.5rem;
-    }
-    
-    .tagline {
-      font-size: 1.2rem;
-      color: #aaa;
-      max-width: 600px;
-      margin-bottom: 3rem;
-    }
-    
-    .cta-button {
-      display: inline-block;
-      background: #00ff9d;
-      color: #000;
-      padding: 1rem 2.5rem;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 1.1rem;
-      transition: transform 0.3s, box-shadow 0.3s;
-      box-shadow: 0 5px 20px rgba(0, 255, 157, 0.3);
-      border: none;
-      cursor: pointer;
-    }
-    
-    .cta-button:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(0, 255, 157, 0.4);
-    }
-    
-    /* GALERÍA EDICIONES ANTERIORES */
-    .ediciones-section {
-      padding: 5rem 2rem;
-      background: rgba(20, 20, 30, 0.3);
-    }
-    
-    .section-title {
-      text-align: center;
-      font-size: 2.5rem;
-      margin-bottom: 3rem;
-      color: #fff;
-    }
-    
-    .ediciones-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2.5rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    
-    .edicion-card {
-      background: rgba(30, 30, 40, 0.7);
-      border-radius: 15px;
-      overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      transition: transform 0.3s, border-color 0.3s;
-    }
-    
-    .edicion-card:hover {
-      transform: translateY(-10px);
-      border-color: rgba(0, 255, 157, 0.3);
-      box-shadow: 0 10px 30px rgba(0, 255, 157, 0.1);
-    }
-    
-    .edicion-img {
-      width: 100%;
-      height: 250px;
-      object-fit: cover;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    }
-    
-    .edicion-info {
-      padding: 1.8rem;
-    }
-    
-    .edicion-title {
-      font-size: 1.4rem;
-      font-weight: 600;
-      margin-bottom: 0.8rem;
-      color: #00ff9d;
-    }
-    
-    .edicion-desc {
-      color: #aaa;
-      font-size: 0.95rem;
-      line-height: 1.6;
-      margin-bottom: 1rem;
-    }
-    
-    .edicion-meta {
-      display: flex;
-      justify-content: space-between;
-      color: #888;
-      font-size: 0.85rem;
-      padding-top: 1rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-    }
-    
-    /* INFO SECTION */
-    .info-section {
-      padding: 5rem 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    
-    .info-section > h2 {
-      text-align: center;
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      color: #fff;
-    }
-    
-    .info-section > p {
-      text-align: center;
-      color: #aaa;
-      max-width: 700px;
-      margin: 0 auto 3rem;
-      font-size: 1.1rem;
-    }
-    
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2.5rem;
-      margin-top: 2rem;
-    }
-    
-    .info-card {
-      background: rgba(20, 20, 20, 0.5);
-      border-radius: 15px;
-      padding: 2.5rem;
-      text-align: center;
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      transition: transform 0.3s;
-    }
-    
-    .info-card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(0, 255, 157, 0.3);
-    }
-    
-    .info-icon {
-      width: 70px;
-      height: 70px;
-      background: rgba(0, 255, 157, 0.1);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 1.5rem;
-      font-size: 1.8rem;
-    }
-    
-    .info-title {
-      font-size: 1.4rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-      color: #00ff9d;
-    }
-    
-    .info-desc {
-      color: #aaa;
-      font-size: 1rem;
-      line-height: 1.7;
-    }
-    
-    /* GALERÍA MOMENTOS */
-    .galeria-section {
-      padding: 5rem 2rem;
-      background: rgba(15, 15, 25, 0.7);
-    }
-    
-    .galeria-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
-      max-width: 1200px;
-      margin: 3rem auto 0;
-    }
-    
-    .galeria-item {
-      border-radius: 10px;
-      overflow: hidden;
-      border: 2px solid rgba(255, 255, 255, 0.1);
-      transition: transform 0.3s, border-color 0.3s;
-      height: 250px;
-    }
-    
-    .galeria-item:hover {
-      transform: translateY(-5px);
-      border-color: #00ff9d;
-    }
-    
-    .galeria-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s;
-    }
-    
-    .galeria-item:hover img {
-      transform: scale(1.05);
-    }
-    
-    /* CONTACTO */
-    .contact-section {
-      padding: 5rem 2rem;
-      text-align: center;
-    }
-    
-    .contact-info {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 3rem;
-      max-width: 900px;
-      margin: 3rem auto 0;
-    }
-    
-    .contact-item h4 {
-      color: #00ff9d;
-      font-size: 1.3rem;
-      margin-bottom: 1rem;
-    }
-    
-    .contact-item p {
-      color: #aaa;
-      line-height: 1.8;
-    }
-    
-    /* FOOTER */
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background: rgba(10, 10, 15, 0.9);
-      color: #888;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-      margin-top: 3rem;
-    }
-    
-    /* MODAL NEWSLETTER */
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.95);
-      z-index: 3000;
-      justify-content: center;
-      align-items: center;
-    }
-    
-    .modal-content {
-      background: rgba(20, 20, 30, 0.95);
-      padding: 3rem;
-      border-radius: 15px;
-      border: 1px solid rgba(0, 255, 157, 0.3);
-      max-width: 500px;
-      width: 90%;
-      position: relative;
-    }
-    
-    .modal h2 {
-      color: #00ff9d;
-      text-align: center;
-      margin-bottom: 2rem;
-      font-size: 1.8rem;
-    }
-    
-    .modal label {
-      display: block;
-      margin-bottom: 0.5rem;
-      color: #ccc;
-    }
-    
-    .modal input {
-      width: 100%;
-      padding: 1rem;
-      margin-bottom: 1.5rem;
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 8px;
-      color: #fff;
-      font-size: 1rem;
-    }
-    
-    .modal input:focus {
-      outline: none;
-      border-color: #00ff9d;
-    }
-    
-    .modal-buttons {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      margin-top: 2rem;
-    }
-    
-    .modal-close {
-      position: absolute;
-      top: 20px;
-      right: 25px;
-      background: none;
-      border: none;
-      color: #00ff9d;
-      font-size: 2.5rem;
-      cursor: pointer;
-      transition: color 0.3s;
-    }
-    
-    .modal-close:hover {
-      color: #fff;
-    }
-    
-    /* RESPONSIVE */
-    @media (max-width: 768px) {
-      .hero h1 { font-size: 2.5rem; }
-      .hero { padding-top: 200px; }
-      .subtitle { font-size: 1.3rem; }
-      nav ul { gap: 1rem; }
-      header { padding: 1rem; flex-direction: column; gap: 1rem; top: 30px; }
-      .top-banner { font-size: 0.8rem; padding: 0.6rem; }
-      .ediciones-grid { grid-template-columns: 1fr; }
-      .info-grid { grid-template-columns: 1fr; }
-      .galeria-grid { grid-template-columns: 1fr; }
-    }
-    
-    @media (max-width: 480px) {
-      .hero h1 { font-size: 2rem; }
-      .section-title { font-size: 2rem; }
-      .modal-content { padding: 2rem; }
-    }
-  </style>
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
   <!-- BANNER SUPERIOR -->
   <div class="top-banner">
     <p>🎬 Todos los viernes en Honoria Cultural a partir de las 20hs. Hermana Severina 313, Viedma, Río Negro.</p>
   </div>
 
-  <!-- NAVEGACIÓN -->
+  <!-- HEADER -->
   <header>
-    <a href="#" class="logo">Silvia Prieto <span>Cineclub</span></a>
-    <nav>
-      <ul>
-        <li><a href="#home">Inicio</a></li>
-        <li><a href="#ediciones">Ediciones</a></li>
-        <li><a href="#info">Información</a></li>
-        <li><a href="#galeria">Galería</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-      </ul>
-    </nav>
+    <h1>Silvia Prieto Cineclub</h1>
   </header>
 
-  <!-- HERO -->
-  <section class="hero" id="home">
-    <h1>Silvia Prieto Cineclub</h1>
-    <p class="subtitle">Cine Experimental en Viedma</p>
-    <p class="tagline">Un espacio donde lo extraño y lo poético se filtran sin avisar. Cada viernes, una película cuyo título es un misterio.</p>
-    <button class="cta-button" id="btn-newsletter">Suscribirse al Newsletter</button>
+  <!-- HERO - MEJORADA -->
+  <section class="hero">
+    <div class="hero-content">
+      <p class="subtitle">Cine Experimental en Viedma</p>
+      <p class="tagline">Un espacio donde lo extraño y lo poético se filtran sin avisar. Cada viernes, una película cuyo título es un misterio.</p>
+      <a href="#info" class="hero-btn">Próxima función →</a>
+    </div>
   </section>
 
-  <!-- EDICIONES ANTERIORES -->
-  <section class="ediciones-section" id="ediciones">
-    <h2 class="section-title">Ediciones Anteriores</h2>
-    <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem; color: #aaa;">Un recorrido por algunas de nuestras proyecciones más memorables</p>
-    
-    <div class="ediciones-grid">
-      <!-- EDICIÓN 1 -->
-      <div class="edicion-card">
-        <img src="assets/img/ediciones/01.jpg" alt="Edición Especial: Cine Abstracto" class="edicion-img">
-        <div class="edicion-info">
-          <h3 class="edicion-title">Edición #23: Cine Abstracto</h3>
-          <p class="edicion-desc">Una noche dedicada a la experimentación visual pura. Proyecciones que desafían la narrativa convencional.</p>
+  <!-- CONTENIDO PRINCIPAL -->
+  <div class="content">
+    <section id="ediciones">
+      <h2>Ediciones Anteriores</h2>
+      <p>Un recorrido por algunas de nuestras proyecciones más memorables</p>
+      
+      <div class="ediciones-grid">
+        <div class="edicion-card">
+          <div class="edicion-img">🎬</div>
+          <h3>Edición #23: Cine Abstracto</h3>
+          <p>Una noche dedicada a la experimentación visual pura. Proyecciones que desafían la narrativa convencional.</p>
           <div class="edicion-meta">
             <span>📅 Abril 2024</span>
             <span>🎞️ 16mm</span>
           </div>
         </div>
-      </div>
-      
-      <!-- EDICIÓN 2 -->
-      <div class="edicion-card">
-        <img src="assets/img/ediciones/02.jpg" alt="Cine Argentino Experimental" class="edicion-img">
-        <div class="edicion-info">
-          <h3 class="edicion-title">Edición #18: Cine Argentino Experimental</h3>
-          <p class="edicion-desc">Homenaje a realizadores locales que exploran los límites del lenguaje cinematográfico nacional.</p>
+        
+        <div class="edicion-card">
+          <div class="edicion-img">🇦🇷</div>
+          <h3>Edición #18: Cine Argentino Experimental</h3>
+          <p>Homenaje a realizadores locales que exploran los límites del lenguaje cinematográfico nacional.</p>
           <div class="edicion-meta">
             <span>📅 Febrero 2024</span>
             <span>📍 Sala Principal</span>
           </div>
         </div>
-      </div>
-      
-      <!-- EDICIÓN 3 -->
-      <div class="edicion-card">
-        <img src="assets/img/ediciones/03.jpg" alt="Cine Mudo con Música en Vivo" class="edicion-img">
-        <div class="edicion-info">
-          <h3 class="edicion-title">Edición #15: Cine Mudo + Música en Vivo</h3>
-          <p class="edicion-desc">Proyección de clásicos del cine mudo acompañados por banda sonora en vivo de artistas locales.</p>
+        
+        <div class="edicion-card">
+          <div class="edicion-img">🎹</div>
+          <h3>Edición #15: Cine Mudo + Música en Vivo</h3>
+          <p>Proyección de clásicos del cine mudo acompañados por banda sonora en vivo de artistas locales.</p>
           <div class="edicion-meta">
             <span>📅 Diciembre 2023</span>
             <span>🎵 Música en vivo</span>
           </div>
         </div>
-      </div>
-      
-      <!-- EDICIÓN 4 -->
-      <div class="edicion-card">
-        <img src="assets/img/ediciones/04.jpg" alt="Cine de Autor Latinoamericano" class="edicion-img">
-        <div class="edicion-info">
-          <h3 class="edicion-title">Edición #12: Autoría Latinoamericana</h3>
-          <p class="edicion-desc">Un viaje por la cinematografía de autor de América Latina, con foco en lo político y lo poético.</p>
+        
+        <div class="edicion-card">
+          <div class="edicion-img">🌎</div>
+          <h3>Edición #12: Autoría Latinoamericana</h3>
+          <p>Un viaje por la cinematografía de autor de América Latina, con foco en lo político y lo poético.</p>
           <div class="edicion-meta">
             <span>📅 Octubre 2023</span>
             <span>🌎 Latinoamérica</span>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- INFORMACIÓN -->
-  <section class="info-section" id="info">
-    <h2>¿Cómo Funciona?</h2>
-    <p>Conoce la dinámica única de nuestro cineclub experimental</p>
-    
-    <div class="info-grid">
-      <div class="info-card">
-        <div class="info-icon">🎭</div>
-        <h3 class="info-title">Programación Secreta</h3>
-        <p class="info-desc">No revelamos los títulos. Cada jueves es una sorpresa cinematográfica que descubrimos juntos en la sala.</p>
-      </div>
+    <section id="info">
+      <h2>¿Cómo Funciona?</h2>
+      <p>Conoce la dinámica única de nuestro cineclub experimental</p>
       
-      <div class="info-card">
-        <div class="info-icon">🕒</div>
-        <h3 class="info-title">Viernes 20:00 hs</h3>
-        <p class="info-desc">Puntualidad cinematográfica. Nos encontramos cada viernes a las 20hs en Honoria Cultural para compartir la experiencia.</p>
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="info-icon">🎭</div>
+          <h3>Programación Secreta</h3>
+          <p>No revelamos los títulos. Cada viernes es una sorpresa cinematográfica que descubrimos juntos en la sala.</p>
+        </div>
+        
+        <div class="info-card">
+          <div class="info-icon">🕒</div>
+          <h3>Viernes 20:00 hs</h3>
+          <p>Puntualidad cinematográfica. Nos encontramos cada viernes a las 20hs en Honoria Cultural para compartir la experiencia.</p>
+        </div>
+        
+        <div class="info-card">
+          <div class="info-icon">💬</div>
+          <h3>Diálogo Post-proyección</h3>
+          <p>Después de cada película, abrimos un espacio de conversación libre sobre lo visto, sentido y pensado.</p>
+        </div>
       </div>
-      
-      <div class="info-card">
-        <div class="info-icon">💬</div>
-        <h3 class="info-title">Diálogo Post-proyección</h3>
-        <p class="info-desc">Después de cada película, abrimos un espacio de conversación libre sobre lo visto, sentido y pensado.</p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- GALERÍA -->
-  <section class="galeria-section" id="galeria">
-    <h2 class="section-title">Momento Cineclub</h2>
-    <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem; color: #aaa;">Capturas de nuestras proyecciones y encuentros</p>
-    
-    <div class="galeria-grid">
-      <div class="galeria-item">
-        <img src="assets/img/galeria/01.jpg" alt="Sala de cine durante proyección">
+    <section id="galeria">
+      <h2>Momento Cineclub</h2>
+      <p>Capturas de nuestras proyecciones y encuentros</p>
+      
+      <div class="galeria-grid">
+        <div class="galeria-item">📽️</div>
+        <div class="galeria-item">🎞️</div>
+        <div class="galeria-item">🎬</div>
       </div>
-      <div class="galeria-item">
-        <img src="assets/img/galeria/02.jpg" alt="Público en diálogo post-proyección">
-      </div>
-      <div class="galeria-item">
-        <img src="assets/img/galeria/03.jpg" alt="Detalle de proyector en funcionamiento">
-      </div>
-    </div>
-  </section>
+      <p class="galeria-note">Próximamente más imágenes</p>
+    </section>
 
-  <!-- CONTACTO -->
-  <section class="contact-section" id="contacto">
-    <h2 class="section-title">Contacto</h2>
-    <p style="max-width: 600px; margin: 0 auto 2rem; color: #aaa;">¿Tenés preguntas o querés proponer algo? Escribinos</p>
-    
-    <div class="contact-info">
-      <div class="contact-item">
-        <h4>📍 Ubicación</h4>
-        <p>Honoria Cultural<br>Hermana Severina 313<br>Viedma, Río Negro</p>
+    <section id="contacto">
+      <h2>Contacto</h2>
+      <p>¿Tenés preguntas o querés proponer algo? Escribinos</p>
+      
+      <div class="contact-info">
+        <div class="contact-item">
+          <h4>📍 Ubicación</h4>
+          <p>Honoria Cultural<br>Hermana Severina 313<br>Viedma, Río Negro</p>
+        </div>
+        
+        <div class="contact-item">
+          <h4>🕐 Horarios</h4>
+          <p>Viernes: 20:00 - 22:00 hs<br>Proyección + Música</p>
+        </div>
+        
+        <div class="contact-item">
+          <h4>✉️ Contacto</h4>
+          <p>silviaprietocineclub@gmail.com<br>Instagram: @silviaprietocineclub</p>
+        </div>
       </div>
       
-      <div class="contact-item">
-        <h4>🕐 Horarios</h4>
-        <p>Viernes: 20:00 - 22:00 hs<br>Proyección + Música</p>
+      <!-- FORMULARIO DE CONTACTO -->
+      <div class="contact-form-container">
+        <form id="contactForm" class="contact-form">
+          <input type="text" id="contactNombre" placeholder="Nombre" required>
+          <input type="email" id="contactEmail" placeholder="Email" required>
+          <textarea id="contactMensaje" rows="4" placeholder="Mensaje" required></textarea>
+          <button type="submit">Enviar mensaje</button>
+          <div id="contactMessage" class="form-message"></div>
+        </form>
       </div>
-      
-      <div class="contact-item">
-        <h4>✉️ Contacto</h4>
-        <p>silviaprietocineclub@gmail.com<br>Instagram: @silviaprietocineclub</p>
-      </div>
+    </section>
+  </div>
+
+  <!-- MANIFIESTO -->
+  <section class="manifiesto">
+    <div class="manifiesto-container">
+      <h2>Manifiesto</h2>
+      <p>El cine no es un espejo, es una ventana abierta a lo desconocido. En Silvia Prieto Cineclub creemos en la imagen que no se deja atrapar, en el sonido que se desborda, en la sala como lugar de encuentro y disidencia. No programamos películas, abrimos preguntas. Cada función es una cita con lo imprevisible. Vení sin saber qué vas a ver, quedate con lo que no sabías que estabas buscando.</p>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
     <p>© 2026 Desarrollado por Teletextlab — Viedma, Río Negro.</p>
-    <p style="margin-top: 1rem; color: #666; font-size: 0.9rem;">Un espacio donde el cine encuentra su misterio.</p>
+    <p style="margin-top: 0.5rem;">Un espacio donde el cine encuentra su misterio.</p>
   </footer>
 
-  <!-- MODAL NEWSLETTER -->
-  <div id="newsletter-modal" class="modal">
-    <div class="modal-content">
-      <button class="modal-close" onclick="closeModal()">×</button>
-      <h2>Suscribite al Newsletter</h2>
-      
-      <form id="newsletter-form" onsubmit="enviarFormulario(event)" action="https://formspree.io/f/manjnjjo" method="POST">
-        <label for="name">Nombre completo:</label>
-        <input type="text" name="nombre" id="name" required placeholder="Tu nombre">
-        
-        <label for="email">Email:</label>
-        <input type="email" name="email" id="email" required placeholder="tuemail@ejemplo.com">
-        
-        <input type="hidden" name="_cc" value="emilianoimit@gmail.com">
-        <input type="hidden" name="_subject" value="Nueva suscripción al newsletter - Silvia Prieto Cineclub">
-        
-        <div class="modal-buttons">
-          <button type="submit" class="cta-button" style="padding: 0.8rem 2rem;">Suscribirme</button>
-          <button type="button" class="cta-button" onclick="closeModal()" style="background: transparent; color: #00ff9d; border: 2px solid #00ff9d;">Cancelar</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <script>
-    // Navegación suave
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if(target) {
-          window.scrollTo({
-            top: target.offsetTop - 100,
-            behavior: 'smooth'
-          });
-        }
-      });
-    });
-
-    // Modal Newsletter
-    document.addEventListener("DOMContentLoaded", function() {
-      const btn = document.getElementById("btn-newsletter");
-      btn.addEventListener("click", function(event) {
-        event.preventDefault();
-        const modal = document.getElementById("newsletter-modal");
-        if (modal) modal.style.display = "flex";
-      });
-    });
-
-    function closeModal() {
-      document.getElementById('newsletter-modal').style.display = 'none';
-    }
-
-    function enviarFormulario(event) {
-      event.preventDefault();
-      const form = event.target;
-      const formData = new FormData(form);
-
-      fetch(form.action, {
-        method: "POST",
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
-      }).then(response => {
-        if (response.ok) {
-          alert("¡Gracias por suscribirte al Silvia Prieto Cineclub! Te enviamos un correo de confirmación.");
-          closeModal();
-          form.reset();
-        } else {
-          alert("Hubo un error al procesar tu suscripción. Por favor intentá más tarde.");
-        }
-      }).catch(error => {
-        alert("Error de conexión. Verificá tu conexión a internet e intentá nuevamente.");
-      });
-    }
-
-    // Cerrar modal con ESC
-    document.addEventListener('keydown', (e) => {
-      if(e.key === 'Escape') closeModal();
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
