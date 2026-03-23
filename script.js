@@ -4,6 +4,7 @@ const langEn = document.getElementById('langEn');
 let currentLang = 'es';
 
 function updateLanguage(lang) {
+  // Actualizar textos con data-es y data-en
   document.querySelectorAll('[data-es][data-en]').forEach(el => {
     if (lang === 'es') {
       el.textContent = el.getAttribute('data-es');
@@ -11,6 +12,22 @@ function updateLanguage(lang) {
       el.textContent = el.getAttribute('data-en');
     }
   });
+  
+  // Actualizar placeholders del formulario
+  const nombreInput = document.getElementById('contactNombre');
+  const emailInput = document.getElementById('contactEmail');
+  const mensajeTextarea = document.getElementById('contactMensaje');
+  
+  if (nombreInput) {
+    nombreInput.placeholder = lang === 'es' ? nombreInput.getAttribute('data-es-placeholder') : nombreInput.getAttribute('data-en-placeholder');
+  }
+  if (emailInput) {
+    emailInput.placeholder = lang === 'es' ? emailInput.getAttribute('data-es-placeholder') : emailInput.getAttribute('data-en-placeholder');
+  }
+  if (mensajeTextarea) {
+    mensajeTextarea.placeholder = lang === 'es' ? mensajeTextarea.getAttribute('data-es-placeholder') : mensajeTextarea.getAttribute('data-en-placeholder');
+  }
+  
   currentLang = lang;
   localStorage.setItem('lang', lang);
 }
@@ -32,8 +49,8 @@ if (langEs && langEn) {
 const savedLang = localStorage.getItem('lang');
 if (savedLang === 'en') {
   updateLanguage('en');
-  langEn.classList.add('active');
-  langEs.classList.remove('active');
+  if (langEn) langEn.classList.add('active');
+  if (langEs) langEs.classList.remove('active');
 } else {
   updateLanguage('es');
 }
@@ -41,19 +58,18 @@ if (savedLang === 'en') {
 /* ==================== MODO OSCURO/CLARO ==================== */
 const body = document.body;
 const themeToggle = document.getElementById('themeToggle');
-let isDark = true;
 
 function setTheme(theme) {
-  if (theme === 'dark') {
-    body.classList.remove('light');
-    body.classList.add('dark');
-    themeToggle.textContent = '☀️';
-    localStorage.setItem('theme', 'dark');
-  } else {
+  if (theme === 'light') {
     body.classList.remove('dark');
     body.classList.add('light');
-    themeToggle.textContent = '🌙';
+    if (themeToggle) themeToggle.textContent = '🌙';
     localStorage.setItem('theme', 'light');
+  } else {
+    body.classList.remove('light');
+    body.classList.add('dark');
+    if (themeToggle) themeToggle.textContent = '☀️';
+    localStorage.setItem('theme', 'dark');
   }
 }
 
@@ -66,8 +82,8 @@ if (savedTheme === 'light') {
 
 if (themeToggle) {
   themeToggle.addEventListener('click', () => {
-    const isDarkMode = body.classList.contains('dark');
-    setTheme(isDarkMode ? 'light' : 'dark');
+    const isDark = body.classList.contains('dark');
+    setTheme(isDark ? 'light' : 'dark');
   });
 }
 
@@ -172,9 +188,11 @@ window.addEventListener('scroll', () => {
   const header = document.querySelector('header');
   const currentScroll = window.pageYOffset;
   
-  if (currentScroll > 100) {
-    header.style.padding = '0.5rem 2rem';
-  } else {
-    header.style.padding = '1rem 2rem';
+  if (header) {
+    if (currentScroll > 100) {
+      header.style.padding = '0.5rem 2rem';
+    } else {
+      header.style.padding = '1rem 2rem';
+    }
   }
 });
