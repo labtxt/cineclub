@@ -1,3 +1,4 @@
+/* ==================== ESTILOS BASE ==================== */
 body {
   background-color: #000;
   color: #fff;
@@ -6,6 +7,11 @@ body {
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+/* ==================== BANNER SUPERIOR ==================== */
 .top-banner {
   background-color: #bfff00;
   color: #000;
@@ -13,6 +19,10 @@ body {
   height: 30px;
   display: flex;
   align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
 }
 
 .top-banner p {
@@ -21,6 +31,7 @@ body {
   font-weight: bold;
   font-size: 14px;
   animation: scroll-left 20s linear infinite;
+  margin: 0;
 }
 
 @keyframes scroll-left {
@@ -28,20 +39,24 @@ body {
   100% { transform: translateX(-100%); }
 }
 
+/* ==================== HEADER ==================== */
 header {
   text-align: center;
-  padding: 40px 20px 20px;
+  padding: 60px 20px 20px;
+  margin-top: 30px;
+  position: relative;
+  z-index: 10;
 }
 
 h1 {
   font-family: 'UnifrakturCook', cursive;
   font-size: 3em;
   margin-bottom: 20px;
-  margin-top: -40px;
 }
 
+/* ==================== HERO - MEJORADA ==================== */
 .hero {
-  height: 100vh;
+  min-height: 70vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -51,27 +66,339 @@ h1 {
   background-position: center;
   background-repeat: no-repeat;
   background-blend-mode: overlay;
-  background-color: rgba(0, 0, 0, 0.8); /* oscurece la imagen */
+  background-color: rgba(0, 0, 0, 0.7);
+  position: relative;
 }
 
-
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.8) 100%);
+  pointer-events: none;
+}
 
 .hero-content {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
   padding: 20px;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
+.subtitle {
+  font-size: 1.5rem;
+  color: #bfff00;
+  margin-bottom: 1rem;
+  animation: fadeInUp 0.8s ease forwards;
+  opacity: 0;
+  animation-delay: 0.2s;
+}
+
+.tagline {
+  font-size: 1.2rem;
+  color: #ccc;
+  max-width: 600px;
+  margin-bottom: 1.5rem;
+  animation: fadeInUp 0.8s ease forwards;
+  opacity: 0;
+  animation-delay: 0.4s;
+}
+
+/* BOTÓN HERO */
+.hero-btn {
+  display: inline-block;
+  background: #bfff00;
+  color: #000;
+  padding: 0.9rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+  margin-top: 0.5rem;
+  border: none;
+  cursor: pointer;
+  animation: fadeInUp 0.8s ease forwards;
+  opacity: 0;
+  animation-delay: 0.6s;
+}
+
+.hero-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 20px rgba(191, 255, 0, 0.4);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==================== CONTENIDO PRINCIPAL ==================== */
 .content {
-  max-width: 800px;
-  margin: auto;
-  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+section {
+  margin-bottom: 80px;
+}
+
+section h2 {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  font-family: 'UnifrakturCook', cursive;
+}
+
+section > p {
+  text-align: center;
+  color: #aaa;
+  max-width: 700px;
+  margin: 0 auto 3rem;
+}
+
+/* ==================== EDICIONES GRID ==================== */
+.ediciones-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.edicion-card {
+  background: rgba(30, 30, 40, 0.7);
+  border-radius: 15px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.edicion-card:hover {
+  transform: translateY(-5px);
+  border-color: #bfff00;
+}
+
+.edicion-img {
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(135deg, #1a1a2a, #0a0a1a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  color: #bfff00;
+}
+
+.edicion-card h3 {
+  font-size: 1.3rem;
+  margin: 1rem 1rem 0.5rem;
+  color: #bfff00;
+}
+
+.edicion-card p {
+  margin: 0 1rem 1rem;
+  color: #aaa;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.edicion-meta {
+  margin: 1rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  justify-content: space-between;
+  color: #888;
+  font-size: 0.8rem;
+}
+
+/* ==================== INFO GRID ==================== */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.info-card {
+  background: rgba(20, 20, 30, 0.5);
+  border-radius: 15px;
+  padding: 2rem;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: transform 0.3s;
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+  border-color: #bfff00;
+}
+
+.info-icon {
+  width: 70px;
+  height: 70px;
+  background: rgba(191, 255, 0, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  font-size: 2rem;
+}
+
+.info-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #bfff00;
+}
+
+.info-card p {
+  color: #aaa;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* ==================== GALERÍA ==================== */
+.galeria-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.galeria-item {
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s, border-color 0.3s;
+  height: 250px;
+  background: linear-gradient(135deg, #1a1a2a, #0a0a1a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  color: #bfff00;
+}
+
+.galeria-item:hover {
+  transform: translateY(-5px);
+  border-color: #bfff00;
+}
+
+.galeria-note {
+  text-align: center;
+  color: #666;
+  font-size: 0.85rem;
+  margin-top: 1rem;
+}
+
+/* ==================== CONTACTO ==================== */
+.contact-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 900px;
+  margin: 2rem auto;
+}
+
+.contact-item {
+  text-align: center;
+  padding: 1.5rem;
+  background: rgba(20, 20, 30, 0.5);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.contact-item h4 {
+  color: #bfff00;
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+}
+
+.contact-item p {
+  color: #aaa;
+  line-height: 1.5;
+}
+
+/* FORMULARIO DE CONTACTO */
+.contact-form-container {
+  max-width: 600px;
+  margin: 3rem auto 0;
+}
+
+.contact-form {
+  background: rgba(30, 30, 40, 0.7);
+  padding: 2rem;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: #fff;
+  font-family: inherit;
+  font-size: 0.9rem;
+  box-sizing: border-box;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #bfff00;
+}
+
+.contact-form button {
+  width: 100%;
+  background: #bfff00;
+  color: #000;
+  border: none;
+  padding: 0.8rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.contact-form button:hover {
+  background: #a0dd00;
+}
+
+.form-message {
+  margin-top: 1rem;
+  font-size: 0.8rem;
   text-align: center;
 }
 
+.form-message.success {
+  color: #bfff00;
+}
+
+.form-message.error {
+  color: #ff6b6b;
+}
+
+/* ==================== MANIFIESTO ==================== */
 .manifiesto {
   background-color: #fff;
   color: #000;
@@ -96,14 +423,106 @@ h1 {
   font-family: 'UnifrakturCook', cursive;
 }
 
+/* ==================== FOOTER ==================== */
 footer {
   text-align: center;
-  padding: 20px;
+  padding: 30px 20px;
   font-size: 0.8em;
   color: #777;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-body, html {
-  max-width: 100%;
-  overflow-x: hidden;
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+  .top-banner p {
+    animation: scroll-left 15s linear infinite;
+    font-size: 12px;
+  }
+  
+  header {
+    padding: 50px 20px 15px;
+  }
+  
+  h1 {
+    font-size: 2.2rem;
+  }
+  
+  .subtitle {
+    font-size: 1.2rem;
+  }
+  
+  .tagline {
+    font-size: 1rem;
+  }
+  
+  .hero-btn {
+    padding: 0.7rem 1.5rem;
+    font-size: 0.9rem;
+  }
+  
+  section h2 {
+    font-size: 1.8rem;
+  }
+  
+  .manifiesto-container {
+    padding: 15px;
+    font-size: 14px;
+  }
+  
+  .manifiesto-container h2 {
+    font-size: 1.8em;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 40px 15px 10px;
+  }
+  
+  h1 {
+    font-size: 1.8rem;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+  }
+  
+  .tagline {
+    font-size: 0.9rem;
+  }
+  
+  .content {
+    padding: 40px 15px;
+  }
+  
+  section {
+    margin-bottom: 50px;
+  }
+  
+  .edicion-card h3,
+  .info-card h3 {
+    font-size: 1.1rem;
+  }
+  
+  .contact-form {
+    padding: 1.5rem;
+  }
+}
+
+/* ==================== SCROLLBAR PERSONALIZADA ==================== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #bfff00;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a0dd00;
 }
