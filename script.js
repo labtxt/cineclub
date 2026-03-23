@@ -1,3 +1,76 @@
+/* ==================== IDIOMA ==================== */
+const langEs = document.getElementById('langEs');
+const langEn = document.getElementById('langEn');
+let currentLang = 'es';
+
+function updateLanguage(lang) {
+  document.querySelectorAll('[data-es][data-en]').forEach(el => {
+    if (lang === 'es') {
+      el.textContent = el.getAttribute('data-es');
+    } else {
+      el.textContent = el.getAttribute('data-en');
+    }
+  });
+  currentLang = lang;
+  localStorage.setItem('lang', lang);
+}
+
+if (langEs && langEn) {
+  langEs.addEventListener('click', () => {
+    updateLanguage('es');
+    langEs.classList.add('active');
+    langEn.classList.remove('active');
+  });
+
+  langEn.addEventListener('click', () => {
+    updateLanguage('en');
+    langEn.classList.add('active');
+    langEs.classList.remove('active');
+  });
+}
+
+const savedLang = localStorage.getItem('lang');
+if (savedLang === 'en') {
+  updateLanguage('en');
+  langEn.classList.add('active');
+  langEs.classList.remove('active');
+} else {
+  updateLanguage('es');
+}
+
+/* ==================== MODO OSCURO/CLARO ==================== */
+const body = document.body;
+const themeToggle = document.getElementById('themeToggle');
+let isDark = true;
+
+function setTheme(theme) {
+  if (theme === 'dark') {
+    body.classList.remove('light');
+    body.classList.add('dark');
+    themeToggle.textContent = '☀️';
+    localStorage.setItem('theme', 'dark');
+  } else {
+    body.classList.remove('dark');
+    body.classList.add('light');
+    themeToggle.textContent = '🌙';
+    localStorage.setItem('theme', 'light');
+  }
+}
+
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'light') {
+  setTheme('light');
+} else {
+  setTheme('dark');
+}
+
+if (themeToggle) {
+  themeToggle.addEventListener('click', () => {
+    const isDarkMode = body.classList.contains('dark');
+    setTheme(isDarkMode ? 'light' : 'dark');
+  });
+}
+
 /* ==================== SMOOTH SCROLL ==================== */
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function(e) {
@@ -6,7 +79,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       e.preventDefault();
       const target = document.querySelector(href);
       if (target) {
-        const offset = 40;
+        const offset = 80;
         const elementPosition = target.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.pageYOffset - offset;
         
@@ -34,7 +107,6 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, observerOptions);
 
-// Aplicar animaciones a elementos
 document.querySelectorAll('.edicion-card, .info-card, .galeria-item, .contact-item').forEach(el => {
   el.style.opacity = '0';
   el.style.transform = 'translateY(20px)';
@@ -55,12 +127,12 @@ if (contactForm) {
     const mensaje = document.getElementById('contactMensaje').value;
     
     if (!nombre || !email || !mensaje) {
-      contactMessage.innerHTML = '❌ Por favor completá todos los campos';
+      contactMessage.innerHTML = currentLang === 'es' ? '❌ Por favor completá todos los campos' : '❌ Please fill all fields';
       contactMessage.className = 'form-message error';
       return;
     }
     
-    contactMessage.innerHTML = '📨 Enviando...';
+    contactMessage.innerHTML = currentLang === 'es' ? '📨 Enviando...' : '📨 Sending...';
     contactMessage.className = 'form-message';
     
     const formData = new FormData();
@@ -77,14 +149,14 @@ if (contactForm) {
       });
       
       if (response.ok) {
-        contactMessage.innerHTML = '✅ ¡Mensaje enviado! Te contactaremos pronto.';
+        contactMessage.innerHTML = currentLang === 'es' ? '✅ ¡Mensaje enviado! Te contactaremos pronto.' : '✅ Message sent! We will contact you soon.';
         contactMessage.className = 'form-message success';
         contactForm.reset();
       } else {
         throw new Error();
       }
     } catch (error) {
-      contactMessage.innerHTML = '❌ Error. Escribinos directamente a silviaprietocineclub@gmail.com';
+      contactMessage.innerHTML = currentLang === 'es' ? '❌ Error. Escribinos directamente a silviaprietocineclub@gmail.com' : '❌ Error. Write directly to silviaprietocineclub@gmail.com';
       contactMessage.className = 'form-message error';
     }
     
@@ -95,27 +167,14 @@ if (contactForm) {
   });
 }
 
-/* ==================== EFECTO HEADER AL SCROLL ==================== */
-let lastScroll = 0;
-const header = document.querySelector('header');
-
+/* ==================== HEADER SCROLL EFFECT ==================== */
 window.addEventListener('scroll', () => {
+  const header = document.querySelector('header');
   const currentScroll = window.pageYOffset;
   
   if (currentScroll > 100) {
-    header.style.opacity = '0.9';
-    header.style.transition = 'opacity 0.3s';
+    header.style.padding = '0.5rem 2rem';
   } else {
-    header.style.opacity = '1';
+    header.style.padding = '1rem 2rem';
   }
-  
-  lastScroll = currentScroll;
-});
-
-/* ==================== PREVENIR CIERRE ACCIDENTAL DE FORM ==================== */
-const formInputs = document.querySelectorAll('.contact-form input, .contact-form textarea');
-formInputs.forEach(input => {
-  input.addEventListener('click', (e) => {
-    e.stopPropagation();
-  });
 });
